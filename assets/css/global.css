@@ -4,21 +4,44 @@
 }
 
 body {
-    background-color: #f6f8fc;
+    background-color: #f5f5f5;
+}
+
+body.info .content {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+h1 {
+    font-weight: lighter;
+    margin: 0 .375rem 1rem;
+}
+
+.drop-shadow {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 .content {
     width: 100vw;
     height: 100vh;
     padding: 1rem;
+    position: relative;
     background-color: #fff;
+    transition: .25s filter linear;
+}
+
+.close {
+    font-style: normal;
+    margin-left: auto;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 992px) {
     .content {
         max-width: 992px;
         height: auto;
-        margin: 1rem auto;
-        border-radius: 1rem;
+        margin: 2rem auto;
+        border-radius: .375rem;
     }
 }

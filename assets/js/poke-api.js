@@ -1,10 +1,30 @@
 
 const pokeApi = {}
 
-function convertPokeApiDetailToPokemon(pokeDetail) {
+pokeApi.pokemons = []
+
+const _replace = {
+    "hp": "HP",
+    "special-attack": "Sp. Atk",
+    "special-defense": "Sp. Def"
+}
+
+async function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
+
     pokemon.number = pokeDetail.id
     pokemon.name = pokeDetail.name
+    pokemon.stats = pokeDetail.stats.flatMap(stats => {
+        const name = _replace[stats.stat.name] || stats.stat.name.ucfirst()
+        const stat = {
+            value: stats.base_stat,
+            name
+        }
+
+        pokemon.totalStats += stat.value
+
+        return stat
+    })
 
     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
@@ -12,7 +32,11 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.types = types
     pokemon.type = type
 
-    pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
+    pokemon.image = pokeDetail.sprites.other.dream_world.front_default
+    pokemon.imageShiny = pokeDetail.sprites.other.home.front_shiny
+    pokemon.image = pokeDetail.sprites.other.home.front_default
+
+    pokeApi.pokemons.push(pokemon)
 
     return pokemon
 }
