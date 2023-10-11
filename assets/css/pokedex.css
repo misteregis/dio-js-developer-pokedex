@@ -1,5 +1,7 @@
 .pokemons {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     margin: 0;
     padding: 0;
@@ -79,8 +81,13 @@
 }
 
 .pokemon {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin: .5rem;
     padding: 1rem;
     border-radius: .25rem;
@@ -104,10 +111,19 @@
 }
 
 .pokemon .detail {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     height: 70px;
     position: relative;
 }
@@ -125,7 +141,8 @@
     margin: .25rem 0;
     font-size: .625rem;
     border-radius: .25rem;
-    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+            filter: brightness(1.1);
     text-align: center;
 }
 
@@ -134,25 +151,40 @@
 }
 
 .pokemon:hover .detail img.shiny {
-    filter: drop-shadow(0 0 .75rem rgba(0,0,0,.3));
+    -webkit-filter: drop-shadow(0 0 .75rem rgba(0,0,0,.3));
+            filter: drop-shadow(0 0 .75rem rgba(0,0,0,.3));
     opacity: 1;
 }
 
 .pokemon .detail img {
     max-width: 100%;
     height: 100px;
-    filter: drop-shadow(0 0 .75rem rgba(255,255,255,.3));
+    -webkit-filter: drop-shadow(0 0 .75rem rgba(255,255,255,.3));
+            filter: drop-shadow(0 0 .75rem rgba(255,255,255,.3));
+    -webkit-transition: opacity .3s ease, -webkit-filter .5s ease;
+    transition: opacity .3s ease, -webkit-filter .5s ease;
+    -o-transition: opacity .3s ease, filter .5s ease;
     transition: opacity .3s ease, filter .5s ease;
+    transition: opacity .3s ease, filter .5s ease, -webkit-filter .5s ease;
     position: absolute;
     bottom: 0px;
     right: -10px;
 }
 
 .pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
     padding: 1rem;
 }

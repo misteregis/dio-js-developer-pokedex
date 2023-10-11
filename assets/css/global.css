@@ -1,6 +1,7 @@
 * {
     font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 body {
@@ -8,9 +9,13 @@ body {
 }
 
 body.info .content {
-    filter: blur(3px);
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
     pointer-events: none;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 h1 {
@@ -19,7 +24,8 @@ h1 {
 }
 
 .drop-shadow {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 .content {
@@ -28,6 +34,8 @@ h1 {
     padding: 1rem;
     position: relative;
     background-color: #fff;
+    -webkit-transition: .25s filter linear;
+    -o-transition: .25s filter linear;
     transition: .25s filter linear;
 }
 

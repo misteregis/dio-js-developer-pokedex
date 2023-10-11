@@ -17,16 +17,25 @@ body.info .pokemon-modal {
     top: 15rem;
     width: 18rem;
     position: absolute;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
     border-radius: 2rem;
 }
 
 .pokemon-info .pokemon-header {
     top: 1rem;
     height: 15.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
     position: relative;
     color: white;
     border-top-left-radius: 1rem;
@@ -38,13 +47,19 @@ body.info .pokemon-modal {
 }
 
 .pokemon-info .pokemon-header .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
 }
 
 .pokemon-info .pokemon-header .types,
 .pokemon-info .pokemon-header .types-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
 }
@@ -58,11 +73,18 @@ body.info .pokemon-modal {
 }
 
 .pokemon-info .pokemon-header img {
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     max-width: 100%;
     height: 200px;
-    filter: drop-shadow(0 0 .75rem rgba(255,255,255,.75));
+    -webkit-filter: drop-shadow(0 0 .75rem rgba(255,255,255,.75));
+            filter: drop-shadow(0 0 .75rem rgba(255,255,255,.75));
+    -webkit-transition: opacity .3s ease, -webkit-filter .5s ease;
+    transition: opacity .3s ease, -webkit-filter .5s ease;
+    -o-transition: opacity .3s ease, filter .5s ease;
     transition: opacity .3s ease, filter .5s ease;
+    transition: opacity .3s ease, filter .5s ease, -webkit-filter .5s ease;
     position: absolute;
     bottom: 0px;
     z-index: 1;
@@ -78,9 +100,13 @@ body.info .pokemon-modal {
 }
 
 .pokemon-info .pokemon-body {
+    display: -ms-grid;
     display: grid;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     grid-gap: .2rem .5rem;
+    -ms-grid-columns: auto .5rem auto .5rem 1fr;
     grid-template-columns: auto auto 1fr;
     background-color: #fff;
     border-radius: 1rem;
@@ -98,6 +124,8 @@ body.info .pokemon-modal {
 }
 
 .pokemon-info .pokemon-body .progress-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 2px;
 }
